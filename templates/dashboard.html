@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h1>Dashboard</h1>
+  <h2>Devices</h2>
+  <table border="1">
+    <tr><th>Device ID</th><th>Vehicle Name</th></tr>
+    {% for device in devices %}
+    <tr><td>{{ device.device_id }}</td><td>{{ device.vehicle_name }}</td></tr>
+    {% endfor %}
+  </table>
+  <a href="/add_device">Add Device</a>
+  <h2>Alerts</h2>
+  <table border="1">
+    <tr><th>Timestamp</th><th>VIN</th><th>Issue</th></tr>
+    {% for alert in alerts %}
+    <tr><td>{{ alert.timestamp }}</td><td>{{ alert.vin }}</td><td>{{ alert.coolant_status }}: {{ alert.coolant_temp }}°C, {{ alert.voltage_status }}: {{ alert.battery_voltage }}V, {{ alert.rpm_status }}: {{ alert.rpm }}</td></tr>
+    {% endfor %}
+  </table>
+  <a href="/logout">Logout</a>
+</body>
+</html>
